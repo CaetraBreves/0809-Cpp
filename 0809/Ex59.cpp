@@ -3,30 +3,42 @@ using namespace std;
 
 int main()
 {
-    int vet[9], cVet=0, maior=0, count=0,lixo=0;;
+    int vet[10], count2 =0, vet2[10];
 
-    for (int i = 0; i < 10; i++)
-    {
+
+        for (int i = 0; i < 10; i++)
+        {
         cout << i << " Insira um valor: " << endl;
         cin >> vet[i];
 
-    }
-    cout << "--------------------" << endl;
-    for (int i = 0; i < 10; i++)
-    {
-        count=0;
-        for (int j = 0; j < 10; j++)
-        {
-         if(vet[i] == vet[j]){               
-                count++;
-                 
-                if (count ==2)
-                {
-                
-                cout << "os numeros repetidos: "  << vet[i] << endl;
-                }
-                
+        }
+            cout << "--------------------" << endl;
+            for (int i = 0; i < 10; i++)
+            {
+
+            for (int j = i +1 ; j < 10; j++)
+            {
+            if (vet[i] == vet[j]) {
+
+
+            bool encontrado = false;
+
+            for (int e = 0; e < count2 && encontrado == false; e++) {
+            if (vet2[e] == vet[i]) {
+            encontrado = true;
             }
         }
+
+
+        if (encontrado == false) {
+        vet2[count2] = vet[i];
+        count2++;
+        }
     }
+}
+}
+cout << "Os numeros repetidos sao: " << endl;
+for (int i = 0; i < count2; i++) {
+cout << vet2[i] << endl;
+}
 }
